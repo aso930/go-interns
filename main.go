@@ -111,8 +111,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
 	} else {
 		dbdata := strings.Split(dbresponse, " ")
 		var data = NewPageData(vars["token"], dbdata[0], dbdata[1])
-		t := template.Must(template.ParseFiles("default.html"))
-		t.ExecuteTemplate(w, "default.html", data)
+		templates.ExecuteTemplate(w, "success", data)
 	}
 	
 }
